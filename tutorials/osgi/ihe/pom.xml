@@ -25,7 +25,7 @@
         <jms-version>1.1-p1</jms-version>
         <neethi-version>3.0.2</neethi-version>
         <osgi-compendium-version>4.2.0</osgi-compendium-version>
-        <pax-web-version>1.1.2</pax-web-version>
+        <pax-web-version>1.1.4</pax-web-version>
         <servicemix-jaxb-api-version>1.9.0</servicemix-jaxb-api-version>
         <servicemix-jaxws-api-version>1.9.0</servicemix-jaxws-api-version>
         <servicemix-saaj-api-version>1.9.0</servicemix-saaj-api-version>
@@ -75,12 +75,20 @@
 
 
         <!-- OSGi Http Service properties -->
-        <org.osgi.service.http.enabled>true</org.osgi.service.http.enabled>
-        <org.osgi.service.http.port>8081</org.osgi.service.http.port>
+        <org.osgi.service.http.enabled>false</org.osgi.service.http.enabled>
+        <!--org.osgi.service.http.port>8081</org.osgi.service.http.port-->
+		<org.osgi.service.http.port.secure>8123</org.osgi.service.http.port.secure>
+		<org.osgi.service.http.secure.enabled>true</org.osgi.service.http.secure.enabled>
+		<org.ops4j.pax.web.ssl.keystore>/_build/certs/osgi/truststore</org.ops4j.pax.web.ssl.keystore>
+		<org.ops4j.pax.web.ssl.keystore.type>JKS</org.ops4j.pax.web.ssl.keystore.type>
+		<org.ops4j.pax.web.ssl.password>Pass1234</org.ops4j.pax.web.ssl.password>
+		<org.ops4j.pax.web.ssl.keypassword>Pass1234</org.ops4j.pax.web.ssl.keypassword>
     </properties>
 
     <modules>
         <module>route-auditor</module>
+        <module>route-client-pixpdqv3-config</module>
+		<module>route-client-pixpdqv3</module>
         <module>route-pixpdq</module>
         <module>route-pixpdqv3</module>
         <module>route-xds</module>
@@ -218,6 +226,8 @@
             <param>mvn:org.ops4j.pax.web/pax-web-jetty/${pax-web-version}@2</param>
             <param>mvn:org.ops4j.pax.web/pax-web-runtime/${pax-web-version}@2</param>
             <param>mvn:org.ops4j.pax.web/pax-web-spi/${pax-web-version}@2</param>
+			<param>mvn:org.ops4j.pax.logging/pax-logging-service/1.6.9@2</param>
+			<param>mvn:org.ops4j.pax.logging/pax-logging-api/1.6.9@2</param>
             <param>mvn:org.openehealth.ipf.osgi/ipf-osgi-commons/${project.version}@start</param>
             <param>mvn:org.openehealth.ipf.osgi/ipf-osgi-extender-basic/${project.version}@2</param>
             <param>mvn:org.openehealth.ipf.osgi/ipf-osgi-extender-spring/${project.version}@nostart</param>

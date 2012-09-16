@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openehealth.ipf.tutorials</groupId>
+    <artifactId>ipf-tutorials-osgi-ihe-route-client-pixpdqv3-config</artifactId>
+    <name>ipf-tutorials-osgi-ihe-route-client-pixpdqv3-config</name>
+
+    <parent>
+        <groupId>org.openehealth.ipf.tutorials</groupId>
+        <artifactId>ipf-tutorials-osgi-ihe</artifactId>
+        <version>2.4-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <osgi.import.pkg>
+            META-INF.cxf,
+            *
+        </osgi.import.pkg>
+        <osgi.fragment.host>org.openehealth.ipf.osgi.ipf-osgi-config-ihe-xds</osgi.fragment.host>
+    </properties>
+
+</project>

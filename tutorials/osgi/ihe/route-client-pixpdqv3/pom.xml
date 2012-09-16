@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openehealth.ipf.tutorials</groupId>
+    <artifactId>ipf-tutorials-osgi-ihe-route-client-pixpdqv3</artifactId>
+    <name>ipf-tutorials-osgi-ihe-route-client-pixpdqv3</name>
+
+    <parent>
+        <groupId>org.openehealth.ipf.tutorials</groupId>
+        <artifactId>ipf-tutorials-osgi-ihe</artifactId>
+        <version>2.4-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <osgi.export.pkg>
+            org.openehealth.ipf.tutorials.osgi.ihe.client.pixv3.*
+        </osgi.export.pkg>
+        <osgi.import.pkg>
+            org.openehealth.ipf.platform.camel.core.util,
+            org.openehealth.ipf.platform.camel.ihe.hl7v3,
+            org.apache.cxf.bus.spring,
+            org.slf4j,
+            META-INF.cxf,
+            *
+        </osgi.import.pkg>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-hl7v3</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+        </dependency>
+    </dependencies>	
+
+
+</project>
