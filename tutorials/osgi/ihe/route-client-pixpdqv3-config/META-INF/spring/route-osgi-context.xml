@@ -21,11 +21,11 @@ http://cxf.apache.org/schemas/configuration/http-conf.xsd
         <http:tlsClientParameters disableCNCheck="true">
             <sec:keyManagers keyPassword="Pass1234">
                 <sec:keyStore type="JKS" password="Pass1234"
-                              file="/_build/certs/osgi/truststore"/>
+                              file="workspace/cert/truststore"/>
             </sec:keyManagers>
             <sec:trustManagers>
                 <sec:keyStore type="JKS" password="Pass1234"
-                              file="/_build/certs/osgi/truststore"/>
+                              file="workspace/cert/truststore"/>
             </sec:trustManagers>
             <sec:cipherSuitesFilter>
                 <!-- these filters ensure that a ciphersuite with

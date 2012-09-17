@@ -30,7 +30,7 @@ public class SampleIti44ClientRouteBuilder extends SpringRouteBuilder {
 
         LOG.info("Configuring the ITI-44 Client")
 
-        from('file:workspace/input/client/pixv3')
+        from('file:workspace/pixv3/in')
             .to('jms:queue:delivery-pixv3-file')
 
         from('jms:queue:delivery-pixv3-file')
@@ -38,5 +38,6 @@ public class SampleIti44ClientRouteBuilder extends SpringRouteBuilder {
             .process {
                 LOG.info("ITI-44 RESPONSE: ${it.in.body}")
             }
+            .to('file:workspace/pixv3/out')
         }
 }
