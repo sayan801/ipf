@@ -94,7 +94,7 @@ class MappingsBuilder extends BuilderSupport {
 	 * @see groovy.util.BuilderSupport#createNode(java.lang.Object, java.util.Map, java.lang.Object)
 	 */
 	 protected Object createNode(Object name, Map attrs, Object value){
-		def node = [name:name]
+		Map node = [name:name]
 		if (attrs) {
 			node[name] = attrs
 		}

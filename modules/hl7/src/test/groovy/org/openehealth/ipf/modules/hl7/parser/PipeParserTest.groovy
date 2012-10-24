@@ -72,6 +72,7 @@ public class PipeParserTest {
 	  def hapiMessage = parser.parse(msgText)
 	  Segment s = hapiMessage.get('ZBE')
 	  assert s.class.name.contains(customGroovyPackageName)
+      s = hapiMessage.get('ZBE')
 	  assert '1234' == Terser.get(s, 1, 0, 1, 1)
   }
 	

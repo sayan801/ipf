@@ -139,14 +139,14 @@ class BidiMappingService implements MappingService, InitializingBean {
 
  	public Set<?> keys(Object mappingKey){
  		checkMappingKey(map, mappingKey)
- 		Set<?> result = map[mappingKey].keySet().findAll { !(it.startsWith('_%')) }
+ 		Set<?> result = map[mappingKey].keySet().findAll { !(it.toString().startsWith('_%')) }
         result
  	}
  	
  	public Collection<?> values(Object mappingKey){
  		checkMappingKey(map, mappingKey)
  		map[mappingKey].findAll({ 
-          !(it.key.startsWith('_%')) 
+          !(it.key.toString().startsWith('_%')) 
         }).values()
  	}
  	
@@ -193,7 +193,7 @@ class BidiMappingService implements MappingService, InitializingBean {
     
     private Object joinKey(Object x) {
     	if (x instanceof Collection) {
-    		return x.join(separator)
+    		return ((Collection)x).join(separator)
     	} else {
     		return x
     	}
