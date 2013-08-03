@@ -22,10 +22,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 http://www.springframework.org/schema/lang
 http://www.springframework.org/schema/lang/spring-lang-2.5.xsd">
 
-  <lang:groovy id="customExtension"
-     script-source="classpath:org/openehealth/ipf/platform/camel/core/config/CustomModelExtension.groovy" >
-  </lang:groovy>
-
   <lang:groovy id="interceptorRoute1"
      script-source="classpath:org/openehealth/ipf/platform/camel/core/config/CustomRoute1.groovy" >
     <lang:property name="intercepted" ref="route1" />

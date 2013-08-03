@@ -27,7 +27,7 @@ import org.openehealth.ipf.platform.camel.core.closures.DelegatingExpression;
  * example:
  * 
  * <pre>
- * from('direct:input').ipf().split()...
+ * from('direct:input').ipf2().split()...
  * </pre>
  * 
  * This selects the IPF splitter rather than the Camel splitter.

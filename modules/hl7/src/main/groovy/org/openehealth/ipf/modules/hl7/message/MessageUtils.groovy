@@ -28,13 +28,13 @@ import ca.uhn.hl7v2.app.DefaultApplication;
 import ca.uhn.hl7v2.model.*
 import ca.uhn.hl7v2.parser.*
 import ca.uhn.hl7v2.util.DeepCopy
-import ca.uhn.hl7v2.util.MessageIDGenerator
 import ca.uhn.hl7v2.util.Terser
 
 /**
  * This is a utility class that offers convenience methods for
  * accessing and creating HL7 messages. It's primarily used by
- * the HapiModelExtension to dynamically add the convenience
+ * the {@link org.openehealth.ipf.modules.hl7.extend.Hl7ExtensionModule}
+ * to dynamically add the convenience
  * methods directly to the affected classes.
  * 
  * @author Christian Ohr

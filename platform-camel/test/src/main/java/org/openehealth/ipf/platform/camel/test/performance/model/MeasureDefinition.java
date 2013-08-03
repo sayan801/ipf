@@ -88,4 +88,8 @@ public class MeasureDefinition extends DelegateDefinition {
         return this;
     }
 
+    @Override
+    public String getShortName() {
+        return "Measure";
+    }
 }

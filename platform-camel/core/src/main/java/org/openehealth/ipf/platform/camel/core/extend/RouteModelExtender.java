@@ -20,6 +20,7 @@ package org.openehealth.ipf.platform.camel.core.extend;
  * 
  * @author Martin Krasser
  */
+@Deprecated
 public interface RouteModelExtender {
 
     /**

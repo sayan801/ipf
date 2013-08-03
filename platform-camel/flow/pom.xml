@@ -24,9 +24,6 @@
         <osgi.require.bundle>
             org.apache.servicemix.bundles.aspectj;visibility:=reexport
         </osgi.require.bundle>
-        <ipf.extension.classes>
-            org.openehealth.ipf.platform.camel.flow.extend.FlowModelExtension
-        </ipf.extension.classes>
         <eclipse.supplement.bundle>
             org.apache.camel.camel-core;version=${camel-version}
         </eclipse.supplement.bundle>

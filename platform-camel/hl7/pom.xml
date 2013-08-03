@@ -26,7 +26,6 @@
             org.slf4j.*;version="[1.6,2)",
             *
         </osgi.import.pkg>
-        <ipf.extension.classes>org.openehealth.ipf.platform.camel.hl7.extend.Hl7ModelExtension</ipf.extension.classes>
     </properties>
     
     <dependencies>

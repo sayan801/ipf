@@ -275,7 +275,7 @@ public class CoreExtensionModule {
      * {@code split})
      * @DSLDoc http://repo.openehealth.org/confluence/display/ipf2/Core+features#Corefeatures-Splitter
      */
-    public static IpfDefinition ipf(ProcessorDefinition self) {
+    public static IpfDefinition ipf2(ProcessorDefinition self) {
         return new IpfDefinition(self);
     }
 

@@ -13,9 +13,6 @@
     
     <properties>
         <osgi.export.pkg>org.openehealth.ipf.platform.camel.test.performance.*</osgi.export.pkg>
-       <ipf.extension.classes>
-            org.openehealth.ipf.platform.camel.test.performance.route.PerformanceModelExtension
-        </ipf.extension.classes>
     </properties>
     
     <dependencies>

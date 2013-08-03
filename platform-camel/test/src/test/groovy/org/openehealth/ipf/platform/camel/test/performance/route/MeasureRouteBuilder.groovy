@@ -31,7 +31,6 @@ class MeasureRouteBuilder extends SpringRouteBuilder {
         errorHandler(noErrorHandler())
         
         from('direct:basic') 
-                
                 .measure().time()
                 .process {}  
                 .measure().finish('finish')
@@ -44,10 +43,10 @@ class MeasureRouteBuilder extends SpringRouteBuilder {
                 .process{}
                 .measure().finish('finish')
                 .to('mock:output')
-        
-        from('direct:split') 
+
+        from('direct:split')
                 .measure().time()
-                .ipf().split { Exchange exchange -> 
+                .ipf2().split { Exchange exchange ->
                     exchange.in.getBody(String.class).split(',')
                 }
                 .measure().finish('finish')

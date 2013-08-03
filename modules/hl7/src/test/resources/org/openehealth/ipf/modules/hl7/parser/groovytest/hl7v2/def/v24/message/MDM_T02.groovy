@@ -19,12 +19,13 @@ import ca.uhn.hl7v2.HL7Exception
 import ca.uhn.hl7v2.parser.ModelClassFactory
 
 /**
-* This custom message is compiled and loaded at runtime (unlike Java custom
-* messages, which are already available as .class file. Take care to load required
-* custom groups and segments in the same way. For this purpose the HapiModelExtension provides
-* addSegment and addGroup extension methods, that take a String instead of a Class as
-* first parameter.
-*/
+ * This custom message is compiled and loaded at runtime (unlike Java custom
+ * messages, which are already available as .class file. Take care to load required
+ * custom groups and segments in the same way. For this purpose the
+ * {@link org.openehealth.ipf.modules.hl7.extend.Hl7ExtensionModule} provides
+ * addSegment and addGroup extension methods, that take a String instead of a Class as
+ * first parameter.
+ */
 public class MDM_T02 extends ca.uhn.hl7v2.model.v24.message.MDM_T02 {
 
    public MDM_T02() {

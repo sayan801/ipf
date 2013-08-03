@@ -21,7 +21,8 @@ import ca.uhn.hl7v2.parser.ModelClassFactory
 /**
  * This custom message is compiled and loaded at runtime (unlike Java custom
  * messages, which are already available as .class file. Take care to load required
- * custom groups and segments in the same way. For this purpose the HapiModelExtension provides
+ * custom groups and segments in the same way. For this purpose the
+ * {@link org.openehealth.ipf.modules.hl7.extend.Hl7ExtensionModule} provides
  * addSegment and addGroup extension methods, that take a String instead of a Class as
  * first parameter.  
  */

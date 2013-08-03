@@ -17,8 +17,6 @@ package org.openehealth.ipf.platform.camel.core.extend
 
 import static org.apache.camel.builder.Builder.*
 
-import org.openehealth.ipf.platform.camel.core.extend.CoreModelExtension
-
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.model.FilterDefinition
 import org.apache.camel.model.ProcessorDefinition
@@ -27,6 +25,7 @@ import org.apache.camel.model.RouteDefinition
 /**
  * @author Martin Krasser
  */
+@Deprecated
 class SampleModelExtension {
     
     static extensions = { 

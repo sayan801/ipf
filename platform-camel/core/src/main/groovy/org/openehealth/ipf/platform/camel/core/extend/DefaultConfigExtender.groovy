@@ -16,7 +16,9 @@
 package org.openehealth.ipf.platform.camel.core.extend
 
 import org.openehealth.ipf.platform.camel.core.builder.RouteBuilderConfig
-import org.openehealth.ipf.platform.camel.core.builder.RouteBuilder/**
+import org.openehealth.ipf.platform.camel.core.builder.RouteBuilder
+
+/**
  * Extends a RouteBuilderConfig object with a <code>context</code> property.
  * RouteBuilderConfig implementations can lookup Spring beans from that
  * property. For example
@@ -30,7 +32,9 @@ import org.openehealth.ipf.platform.camel.core.builder.RouteBuilder/**
  * as argument to the <code>transmogrify()</code> method.
  * 
  * @author Martin Krasser
+ * @deprecated used from deprecated classes only
  */
+@Deprecated
 class DefaultConfigExtender {
 
     RouteBuilder routeBuilder
@@ -63,7 +67,9 @@ class DefaultConfigExtender {
   * Wrapper for a Spring application context.
   * 
   * @author Martin Krasser
+  * @deprecated used from deprecated classes only
   */
+@Deprecated
 class Context {
 
     def applicationContext

@@ -66,7 +66,7 @@ class RegRepModelExtension {
     }
     
     static ProcessorDefinition splitEntries(ProcessorDefinition self, entriesClosure) {
-        self.ipf().split { exchange ->
+        self.split { exchange ->
             def body = exchange.in.body
             def entries = entriesClosure(body) 
             entries.collect { entry -> body.clone() + [entry: entry] }

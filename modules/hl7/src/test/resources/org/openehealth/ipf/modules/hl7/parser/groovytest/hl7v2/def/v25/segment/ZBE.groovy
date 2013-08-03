@@ -39,7 +39,8 @@ import ca.uhn.hl7v2.parser.ModelClassFactory
  * 
  * This custom segment is compiled and loaded at runtime (unlike Java custom
  * segments, which are already available as .class file. Take care to load required
- * custom types in the same way. For this purpose the HapiModelExtension provides
+ * custom types in the same way. For this purpose the
+ * {@link org.openehealth.ipf.modules.hl7.extend.Hl7ExtensionModule} provides
  * addType extension methods, that take a String instead of a Class as
  * first parameter.  
  *

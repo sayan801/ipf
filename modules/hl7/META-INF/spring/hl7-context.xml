@@ -5,12 +5,7 @@
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--bean id="hapiModelExtension"
-        class="org.openehealth.ipf.modules.hl7.extend.HapiModelExtension">
-        <property name="mappingService" ref="mappingService" />
-    </bean-->
-    
-    <bean id="customModelClassFactory" 
+    <bean id="customModelClassFactory"
         class="org.openehealth.ipf.modules.hl7.parser.CustomModelClassFactory">
     </bean>    
 
