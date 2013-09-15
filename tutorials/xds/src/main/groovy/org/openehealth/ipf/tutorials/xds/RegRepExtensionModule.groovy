@@ -27,7 +27,7 @@ import javax.activation.DataHandler
  * The DSL for the registry and repository route implementations.
  * @author Jens Riemschneider
  */
-class RegRepModelExtension {
+class RegRepExtensionModule {
      
     static ProcessorDefinition store(ProcessorDefinition self) {
         self.process { dataStore().store(it.in.body.entry) }
@@ -66,7 +66,7 @@ class RegRepModelExtension {
     }
     
     static ProcessorDefinition splitEntries(ProcessorDefinition self, entriesClosure) {
-        self.ipf2().split { exchange ->
+        self.ipf().split { exchange ->
             def body = exchange.in.body
             def entries = entriesClosure(body) 
             entries.collect { entry -> body.clone() + [entry: entry] }

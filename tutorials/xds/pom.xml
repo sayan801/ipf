@@ -32,7 +32,6 @@
             org.slf4j.*;version="[1.6,2)",
             *
         </osgi.import.pkg>
-        <ipf.extension.beans>regRepModelExtension</ipf.extension.beans>
     </properties>
 
     <dependencies>

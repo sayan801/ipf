@@ -275,8 +275,12 @@ public class CoreExtensionModule {
      * {@code split})
      * @DSLDoc http://repo.openehealth.org/confluence/display/ipf2/Core+features#Corefeatures-Splitter
      */
-    public static IpfDefinition ipf2(ProcessorDefinition self) {
-        return new IpfDefinition(self);
+    public static IpfDefinition ipf(ProcessorDefinition self) {
+        if (self.getMetaClass().getMetaMethod("ipf_FlowExtensionModule") != null) {
+            return self.ipf_FlowExtensionModule()
+        } else {
+            return new IpfDefinition(self)
+        }
     }
 
     /**

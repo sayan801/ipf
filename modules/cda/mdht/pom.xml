@@ -13,7 +13,7 @@
     
     <properties>
         <osgi.export.pkg>org.openehealth.ipf.modules.cda.mdht*</osgi.export.pkg>
-        <ipf.extension.beans>cdaModelExtension</ipf.extension.beans>
+        <!--<ipf.extension.beans>cdaModelExtension</ipf.extension.beans>-->
     </properties>
     
     <dependencies>

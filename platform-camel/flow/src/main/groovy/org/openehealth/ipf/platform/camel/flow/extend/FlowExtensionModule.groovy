@@ -19,7 +19,8 @@ import org.apache.camel.model.ProcessorDefinition;
 import org.openehealth.ipf.platform.camel.flow.model.*;
 
 /**
- * Flow DSL extensions for usage in a {@link RouteBuilder} using the {@code use} keyword.
+ * Flow DSL extensions for usage in a {@link org.apache.camel.builder.RouteBuilder}
+ * using the {@code use} keyword.
  * 
  * @DSL
  * 
@@ -32,7 +33,7 @@ public class FlowExtensionModule {
      * @DSLDoc http://repo.openehealth.org/confluence/display/ipf2/Flow+management#Flowmanagement-initflowextension
      */
     public static FlowBeginProcessorDefinition initFlow(ProcessorDefinition self) {
-        FlowBeginProcessorDefinition answer = new FlowBeginProcessorDefinition();
+        FlowBeginProcessorDefinition answer = new FlowBeginProcessorDefinition(null);
         self.addOutput(answer);
         return answer;
     }
@@ -84,7 +85,7 @@ public class FlowExtensionModule {
      * {@code split})
      * @DSLDoc http://repo.openehealth.org/confluence/display/ipf2/Core+features#Corefeatures-Splitter
      */
-    public static IpfDefinition ipf(ProcessorDefinition self) {
+    public static IpfDefinition ipf_FlowExtensionModule(ProcessorDefinition self) {
         return new IpfDefinition(self)
     }
 }

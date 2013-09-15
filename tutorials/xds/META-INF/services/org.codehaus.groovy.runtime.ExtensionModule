@@ -1,4 +1,4 @@
 moduleName=RegRepModelExtension
 moduleVersion=2.5
-extensionClasses=org.openehealth.ipf.tutorials.xds.RegRepModelExtension
+extensionClasses=org.openehealth.ipf.tutorials.xds.RegRepExtensionModule
 staticExtensionClasses=

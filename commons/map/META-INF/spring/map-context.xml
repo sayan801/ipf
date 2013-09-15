@@ -5,6 +5,7 @@
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
     <bean id="mappingService" 
         class="org.openehealth.ipf.commons.map.BidiMappingService">
     </bean>
@@ -18,5 +19,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
         class="org.openehealth.ipf.commons.map.config.CustomMappingsConfigurer">
         <property name="mappingService" ref="mappingService" />
     </bean>
+    -->
     
 </beans>

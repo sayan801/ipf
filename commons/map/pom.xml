@@ -12,7 +12,7 @@
             *
         </osgi.import.pkg>
         <osgi.export.pkg>org.openehealth.ipf.commons.map.*</osgi.export.pkg>
-        <ipf.extension.beans>mappingExtension</ipf.extension.beans>
+        <!--<ipf.extension.beans>mappingExtension</ipf.extension.beans>-->
     </properties>
 
     <parent>
