@@ -1335,6 +1335,7 @@
                 <directory>.</directory>
                 <includes>
                     <include>META-INF/**/*</include>
+                    <include>OSGI-INF/**/*</include>
                 </includes>
             </resource>
         </resources>

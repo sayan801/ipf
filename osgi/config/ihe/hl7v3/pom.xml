@@ -54,7 +54,9 @@
             org.openehealth.ipf.platform.camel.ihe.hl7v3.iti46,
             org.openehealth.ipf.platform.camel.ihe.hl7v3.iti47,
             org.openehealth.ipf.platform.camel.ihe.hl7v3.iti55,
+            org.openehealth.ipf.platform.camel.ihe.hl7v3.iti55.asyncresponse,
             org.openehealth.ipf.platform.camel.ihe.hl7v3.iti56,
+            org.openehealth.ipf.platform.camel.ihe.hl7v3.iti56.asyncresponse,
             org.openehealth.ipf.platform.camel.ihe.hl7v3.pcc1,
             *
         </osgi.import.pkg>

@@ -15,12 +15,7 @@
  */
 package org.openehealth.ipf.osgi.extender.config;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import org.openehealth.ipf.commons.core.config.OrderedConfigurer;
-import org.openehealth.ipf.commons.core.config.SpringRegistry;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.InvalidSyntaxException;
@@ -28,8 +23,13 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.osgi.extender.OsgiBeanFactoryPostProcessor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
- * OSGi-Extender which holds the instances of all {@link OrderedConfigurer}
+ * OSGi-Extender which holds the instances of all {@link org.openehealth.ipf.commons.core.config.OrderedConfigurer}
  * and {@link OsgiSpringConfigurer}. Every time a new bundle with existing
  * spring definition is registered inside of the BundleContext, this
  * extender loops through its defined configurers and looks-up for
@@ -76,8 +76,14 @@ public class OsgiSpringConfigurationPostProcessor implements OsgiBeanFactoryPost
     }
 
     public void setSpringConfigurers(List<OrderedConfigurer> springConfigurers) {
-        this.springConfigurers = springConfigurers;
-        Collections.sort(springConfigurers);
+        List<OrderedConfigurer> configurerList = new ArrayList();
+        if (springConfigurers != null){
+            for (OrderedConfigurer configurer: springConfigurers){
+                configurerList.add(configurer);
+            }
+            Collections.sort(configurerList);
+        }
+        this.springConfigurers = configurerList;
     }
 
     public List<OsgiSpringConfigurer> getOsgiSpringConfigurers() {

@@ -15,11 +15,10 @@
  */
 package org.openehealth.ipf.osgi.extender.basic;
 
-import groovy.lang.*;
-import org.codehaus.groovy.reflection.CachedClass;
+
 import org.codehaus.groovy.runtime.m12n.ExtensionModule;
+import org.codehaus.groovy.runtime.m12n.ExtensionModuleScanner;
 import org.codehaus.groovy.runtime.m12n.StandardPropertiesModuleFactory;
-import org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl;
 import org.openehealth.ipf.commons.core.extend.config.DynamicExtensionConfigurer;
 import org.osgi.framework.*;
 import org.slf4j.Logger;
@@ -29,7 +28,7 @@ import org.springframework.osgi.util.BundleDelegatingClassLoader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.*;
+import java.util.Properties;
 
 import static org.apache.commons.io.IOUtils.closeQuietly;
 import static org.osgi.framework.BundleEvent.STARTED;
@@ -83,9 +82,9 @@ public class GroovyExtenderActivator implements BundleActivator, SynchronousBund
     }
 
     private void addExtensionMethods(Bundle bundle) {
-        if (bundle.getResource(MetaClassRegistryImpl.MODULE_META_INF_FILE) != null){
+        if (bundle.getResource(ExtensionModuleScanner.MODULE_META_INF_FILE) != null){
             StandardPropertiesModuleFactory factory = new StandardPropertiesModuleFactory();
-            Properties props = getProperties(bundle.getResource(MetaClassRegistryImpl.MODULE_META_INF_FILE));
+            Properties props = getProperties(bundle.getResource(ExtensionModuleScanner.MODULE_META_INF_FILE));
             LOG.info("Reading extension method definitions {}" + props);
             ClassLoader classLoader = BundleDelegatingClassLoader.createBundleClassLoaderFor(bundle);
             ExtensionModule module = factory.newModule(props, classLoader);

@@ -1,0 +1,51 @@
+<!--
+    Copyright 2014 the original author or authors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation=
+                   "http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <bean id="pixv3-iti44"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti44.Iti44PixComponent"/>
+
+    <bean id="xds-iti44"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti44.Iti44XdsComponent"/>
+
+    <bean id="pixv3-iti45"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti45.Iti45Component"/>
+
+    <bean id="pixv3-iti46"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti46.Iti46Component"/>
+
+    <bean id="pdqv3-iti47"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti47.Iti47Component"/>
+
+    <bean id="qed-pcc1"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.pcc1.Pcc1Component"/>
+
+    <bean id="xcpd-iti55"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti55.Iti55Component"/>
+
+    <!--<bean id="xcpd-iti55-async-response"-->
+          <!--class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti55.asyncresponse.Iti55AsyncResponseComponent"/>-->
+
+    <bean id="xcpd-iti56"
+          class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti56.Iti56Component"/>
+
+    <!--<bean id="xcpd-iti56-async-response"-->
+          <!--class="org.openehealth.ipf.platform.camel.ihe.hl7v3.iti56.asyncresponse.Iti56AsyncResponseComponent"/>-->
+
+</blueprint>

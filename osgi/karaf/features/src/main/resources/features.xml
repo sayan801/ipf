@@ -262,6 +262,7 @@
         <bundle start-level='30'>mvn:org.apache.mina/mina-core/${mina2-version}</bundle>
         <bundle start-level='50'>mvn:org.apache.camel/camel-spring/${camel-version}</bundle>
         <bundle start-level='50'>mvn:org.apache.camel/camel-core/${camel-version}</bundle>
+        <bundle start-level='50'>mvn:org.apache.camel/camel-blueprint/${camel-version}</bundle>
         <bundle start-level='50'>mvn:org.apache.camel/camel-hl7/${camel-version}</bundle>
         <bundle start-level='50'>mvn:org.apache.camel/camel-jms/${camel-version}</bundle>
         <bundle start-level='50'>mvn:org.apache.camel/camel-jetty/${camel-version}</bundle>

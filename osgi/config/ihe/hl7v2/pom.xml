@@ -11,4 +11,16 @@
         <version>2.7-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <osgi.import.pkg>
+            org.apache.camel,
+            org.openehealth.ipf.platform.camel.ihe.mllp.iti8,
+            org.openehealth.ipf.platform.camel.ihe.mllp.iti9,
+            org.openehealth.ipf.platform.camel.ihe.mllp.iti10,
+            org.openehealth.ipf.platform.camel.ihe.mllp.iti21,
+            org.openehealth.ipf.platform.camel.ihe.mllp.iti22,
+            *
+        </osgi.import.pkg>
+    </properties>
+
 </project>
