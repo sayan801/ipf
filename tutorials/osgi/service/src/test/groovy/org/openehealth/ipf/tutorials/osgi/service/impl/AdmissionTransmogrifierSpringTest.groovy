@@ -19,18 +19,26 @@ import static org.openehealth.ipf.modules.hl7dsl.MessageAdapters.load
 
 import static org.junit.Assert.*
 
-import org.junit.Beforeimport org.junit.BeforeClass
-import org.junit.Testimport org.junit.runner.RunWith
-import ca.uhn.hl7v2.model.Type
-import org.openehealth.ipf.commons.core.modules.api.Transmogrifier
+import org.junit.Before
+import org.junit.BeforeClass
+import org.junit.Test
+import org.junit.runner.RunWith
+import ca.uhn.hl7v2.model.Type
+
+import org.openehealth.ipf.commons.core.modules.api.Transmogrifier
+
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.test.context.ContextConfigurationimport org.springframework.test.context.TestExecutionListenersimport org.springframework.test.context.junit4.SpringJUnit4ClassRunnerimport org.springframework.test.context.support.DependencyInjectionTestExecutionListener
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.TestExecutionListeners
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener
+
 /**
  * @author Martin Krasser
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = [
-   '/META-INF/spring/service-context.xml', '/service-test-context.xml'
+   '/service-context.xml', '/service-test-context.xml'
 ])
 @TestExecutionListeners([DependencyInjectionTestExecutionListener.class])
 public class AdmissionTransmogrifierSpringTest {

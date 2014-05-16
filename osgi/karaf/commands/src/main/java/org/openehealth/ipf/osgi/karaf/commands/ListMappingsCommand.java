@@ -15,19 +15,12 @@
  */
 package org.openehealth.ipf.osgi.karaf.commands;
 
-import groovy.lang.GroovySystem;
-import groovy.lang.MetaMethod;
 import org.apache.felix.gogo.commands.Command;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
-import org.codehaus.groovy.runtime.m12n.ExtensionModule;
-import org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl;
-import org.openehealth.ipf.commons.map.BidiMappingService;
 import org.openehealth.ipf.commons.map.MappingService;
+import org.openehealth.ipf.osgi.karaf.util.BlueprintUtils;
 
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Boris Stanojevic
@@ -38,22 +31,22 @@ public class ListMappingsCommand extends OsgiCommandSupport {
 
     @Override
     protected Object doExecute() throws Exception {
-        BidiMappingService mappingService = getService(BidiMappingService.class,
-                getBundleContext().getServiceReference(MappingService.class.getCanonicalName()));
-        if (mappingService != null && mappingService.getMap() != null){
-            System.out.println("\nAvailable Mappings(" + mappingService.getMap().size() + ")");
+        MappingService mappingService = BlueprintUtils.getOsgiService(getBundleContext(), MappingService.class, 2000);
+
+        if (mappingService != null && mappingService.mappingKeys() != null){
+            System.out.println("\nAvailable Mappings(" + mappingService.mappingKeys().size() + ")");
             System.out.println("======================== ");
-            for (Iterator it = mappingService.getMap().keySet().iterator(); it.hasNext(); ){
-                Object key = it.next();
-                System.out.println("\n\tKey: " + key);
-                Map map = mappingService.getMap().get(key);
-                System.out.println("\t-------------------------------------------------");
-                for (Iterator entries = map.entrySet().iterator(); entries.hasNext(); ){
-                    Map.Entry entry = (Map.Entry)entries.next();
-                    System.out.println("\t\t" + entry.getKey() + " -> " + entry.getValue());
+            for (Iterator it = mappingService.mappingKeys().iterator(); it.hasNext(); ){
+                Object mappingKey = it.next();
+                System.out.println("\n\tMappingKey: " + mappingKey);
+                for (Iterator innerIt = mappingService.keys(mappingKey).iterator(); innerIt.hasNext(); ){
+                    Object key = innerIt.next();
+                    Object value = mappingService.get(mappingKey, key);
+                    System.out.println("\t\t" + key + " -> " + value);
                 }
             }
         }
         return null;
     }
+
 }
