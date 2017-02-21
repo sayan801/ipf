@@ -46,11 +46,13 @@ public class Server {
         servletServer.contextPath = ''
         servletServer.servletPath = '/*'
         servletServer.servlet = servlet
+		
+		// Using HTTPS instead of HTTP requires very little work
         servletServer.secure = args.length == 1 && args[0].equals('secure')
-        servletServer.keystoreFile = 'keystore'
-        servletServer.keystorePass = 'changeit'
-        servletServer.truststoreFile = 'keystore'
-        servletServer.truststorePass = 'changeit'
+        	servletServer.keystoreFile = 'keystore'
+			servletServer.keystorePass = 'changeit'
+			servletServer.truststoreFile = 'keystore'
+			servletServer.truststorePass = 'changeit'
         servletServer.start()
         
         AuditorModuleContext.context.config.auditRepositoryHost = 'localhost'

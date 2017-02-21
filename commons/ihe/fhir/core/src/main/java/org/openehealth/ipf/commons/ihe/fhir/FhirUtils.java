@@ -25,7 +25,6 @@ import ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.OperationOutcome;
-import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;
 
 import java.util.LinkedHashMap;
@@ -49,11 +48,11 @@ public final class FhirUtils {
      * @param bundle Bundle
      * @return map of entries grouped by their resource type
      */
-    public static Map<ResourceType, List<Bundle.BundleEntryComponent>> getBundleEntries(Bundle bundle) {
+    public static Map<String, List<Bundle.BundleEntryComponent>> getBundleEntries(Bundle bundle) {
         return bundle.getEntry().stream()
                 .collect(Collectors.groupingBy(entry -> {
                             Bundle.BundleEntryRequestComponent request = entry.getRequest();
-                            if (request == null || request.getUrl() == null || !request.getUrl().equals(entry.getResource().getResourceType().toString())) {
+                            if (request == null || request.getUrl() == null || !request.getUrl().equals(entry.getResource().getClass().getSimpleName())) {
                                 throw unprocessableEntity(
                                         OperationOutcome.IssueSeverity.ERROR,
                                         OperationOutcome.IssueType.INVALID,
@@ -61,7 +60,7 @@ public final class FhirUtils {
                                         "Invalid bundle entry request element %s",
                                         entry);
                             }
-                            return entry.getResource().getResourceType();
+                            return request.getUrl();
                         }
                 , LinkedHashMap::new, Collectors.toList()));
     }

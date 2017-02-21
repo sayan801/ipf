@@ -30,7 +30,6 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;
 import org.hl7.fhir.instance.model.api.IBaseResource;
@@ -121,10 +120,10 @@ public class Iti65Validator extends FhirTransactionValidator.Support {
      */
     protected void validateBundleConsistency(Bundle bundle) {
 
-        Map<ResourceType, List<Bundle.BundleEntryComponent>> entries = FhirUtils.getBundleEntries(bundle);
+        Map<String, List<Bundle.BundleEntryComponent>> entries = FhirUtils.getBundleEntries(bundle);
 
         // Verify that the bundle has all required resources
-        if (entries.getOrDefault(ResourceType.DocumentManifest, Collections.emptyList()).size() != 1) {
+        if (entries.getOrDefault(DocumentManifest.class.getSimpleName(), Collections.emptyList()).size() != 1) {
             throw FhirUtils.unprocessableEntity(
                     OperationOutcome.IssueSeverity.ERROR,
                     OperationOutcome.IssueType.INVALID,
@@ -132,7 +131,7 @@ public class Iti65Validator extends FhirTransactionValidator.Support {
                     "Request bundle must have exactly one DocumentManifest"
             );
         }
-        if (entries.getOrDefault(ResourceType.DocumentReference, Collections.emptyList()).isEmpty()) {
+        if (entries.getOrDefault(DocumentManifest.class.getSimpleName(), Collections.emptyList()).isEmpty()) {
             throw FhirUtils.unprocessableEntity(
                     OperationOutcome.IssueSeverity.ERROR,
                     OperationOutcome.IssueType.INVALID,
@@ -190,7 +189,7 @@ public class Iti65Validator extends FhirTransactionValidator.Support {
         entries.values().stream()
                 .flatMap(Collection::stream)
                 .forEach(entry -> {
-                    if (ResourceType.DocumentReference == entry.getResource().getResourceType()) {
+                    if (entry.getResource() instanceof DocumentReference) {
                         if (!expectedReferenceFullUrls.remove(entry.getFullUrl())) {
                             throw FhirUtils.unprocessableEntity(
                                     OperationOutcome.IssueSeverity.ERROR,
@@ -200,7 +199,7 @@ public class Iti65Validator extends FhirTransactionValidator.Support {
                                     entry.getFullUrl()
                             );
                         }
-                    } else if (ResourceType.Binary == entry.getResource().getResourceType()) {
+                    } else if (entry.getResource() instanceof Binary) {
                         if (!expectedBinaryFullUrls.remove(entry.getFullUrl())) {
                             throw FhirUtils.unprocessableEntity(
                                     OperationOutcome.IssueSeverity.ERROR,
