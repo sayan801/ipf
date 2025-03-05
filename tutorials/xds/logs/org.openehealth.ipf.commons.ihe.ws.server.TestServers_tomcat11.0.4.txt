@@ -1,0 +1,65 @@
+-------------------------------------------------------------------------------
+Test set: org.openehealth.ipf.commons.ihe.ws.server.TestServers
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.742 s <<< FAILURE! -- in org.openehealth.ipf.commons.ihe.ws.server.TestServers
+org.openehealth.ipf.commons.ihe.ws.server.TestServers.testTomcat -- Time elapsed: 1.550 s <<< FAILURE!
+java.lang.AssertionError: org.apache.catalina.LifecycleException: A child container failed during start
+	at org.openehealth.ipf.commons.ihe.ws.server.TomcatServer.start(TomcatServer.java:102)
+	at org.openehealth.ipf.commons.ihe.ws.server.TestServers.checkServer(TestServers.java:65)
+	at org.openehealth.ipf.commons.ihe.ws.server.TestServers.testTomcat(TestServers.java:44)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.apache.catalina.LifecycleException: A child container failed during start
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:735)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:866)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:436)
+	at org.openehealth.ipf.commons.ihe.ws.server.TomcatServer.start(TomcatServer.java:98)
+	... 5 more
+Caused by: java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: A child container failed during start
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:723)
+	... 13 more
+Caused by: org.apache.catalina.LifecycleException: A child container failed during start
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:735)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:771)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1170)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1160)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:716)
+	... 13 more
+Caused by: java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.DirResourceSet@5e8cda75]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:723)
+	... 21 more
+Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.DirResourceSet@5e8cda75]
+	at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:406)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:125)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:155)
+	at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:726)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4132)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4254)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1170)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1160)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:716)
+	... 21 more
+Caused by: java.lang.IllegalStateException: Unable to disable the global canonical file name cache or confirm that it is disabled when starting the WebResourceSet at [/] which is part of the web application [/testContext]. The WebResourceSet may be exposed to CVE-2024-56337.
+	at org.apache.catalina.webresources.DirResourceSet.initInternal(DirResourceSet.java:364)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+	... 33 more
+

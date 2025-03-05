@@ -1,0 +1,73 @@
+mvn clean install assembly:single
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ----------< org.openehealth.ipf.tutorials:ipf-tutorials-xds >-----------
+[INFO] Building ipf-tutorials-xds 5.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ ipf-tutorials-xds ---
+[INFO] Deleting /media/chandra/b664505e-129c-4c0d-a87b-9efb6469eca2/home/chandra/code/ipf/tutorials/xds/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-versions) @ ipf-tutorials-xds ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BanDuplicatePomDependencyVersions passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] Rule 3: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.286 s
+[INFO] Finished at: 2025-03-05T15:36:50+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.5.0:enforce (enforce-versions) on project ipf-tutorials-xds: 
+[ERROR] Rule 1: org.apache.maven.enforcer.rules.dependency.DependencyConvergence failed with message:
+[ERROR] Failed while enforcing releasability.
+[ERROR] 
+[ERROR] Dependency convergence error for org.apache.tomcat:tomcat-servlet-api:jar:10.1.30 paths to dependency are:
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-catalina:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-servlet-api:jar:10.1.30:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-catalina:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-jsp-api:jar:10.1.36:compile
+[ERROR]       +-org.apache.tomcat:tomcat-servlet-api:jar:10.1.36:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-catalina:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-api:jar:10.1.30:compile
+[ERROR]       +-org.apache.tomcat:tomcat-servlet-api:jar:10.1.30:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-coyote:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-servlet-api:jar:10.1.30:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-jasper:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-servlet-api:jar:10.1.30:compile
+[ERROR] 
+[ERROR] 
+[ERROR] Dependency convergence error for org.apache.tomcat:tomcat-el-api:jar:10.1.36 paths to dependency are:
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-catalina:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-jsp-api:jar:10.1.36:compile
+[ERROR]       +-org.apache.tomcat:tomcat-el-api:jar:10.1.36:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-jasper:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-el-api:jar:10.1.30:compile
+[ERROR] and
+[ERROR] +-org.openehealth.ipf.tutorials:ipf-tutorials-xds:jar:5.1-SNAPSHOT
+[ERROR]   +-org.apache.tomcat:tomcat-jasper:jar:10.1.30:compile
+[ERROR]     +-org.apache.tomcat:tomcat-jasper-el:jar:10.1.30:compile
+[ERROR]       +-org.apache.tomcat:tomcat-el-api:jar:10.1.30:compile
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
